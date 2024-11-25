@@ -368,6 +368,15 @@ INPUT ./image_0.png
 INPUT ./image_0.png
 INPUT ./image_0.png
 INPUT ./image_0.png
+INPUT ./pose_estimation.png
+INPUT ./pose_estimation.png
+INPUT ./pose_estimation.png
+INPUT ./pose_estimation.png
+INPUT ./pose_estimation.png
+INPUT ./pose_estimation.png
+INPUT ./pose_estimation.png
+INPUT ./pose_estimation.png
+INPUT ./pose_estimation.png
 INPUT ./pose_estimation_plot.png
 INPUT ./pose_estimation_plot.png
 INPUT ./pose_estimation_plot.png

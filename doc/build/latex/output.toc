@@ -3,7 +3,7 @@
 \contentsline {section}{\numberline {1.1}Prerequisites}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Installation}{1}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Usage}{2}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Notes}{3}{section.1.4}%
+\contentsline {section}{\numberline {1.4}Notes}{4}{section.1.4}%
 \contentsline {chapter}{\numberline {2}PoseEstimator}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}PoseEstimator package}{5}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Submodules}{5}{subsection.2.1.1}%

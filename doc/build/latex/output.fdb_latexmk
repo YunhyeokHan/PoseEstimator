@@ -1,11 +1,11 @@
 # Fdb version 4
-["makeindex output.idx"] 1732543486.87858 "output.idx" "output.ind" "output" 1732543864.80504 0
-  "output.idx" 1732543864 2969 57213c30f17513ff5a45fcd17fdf50b5 "pdflatex"
+["makeindex output.idx"] 1732546947.54674 "output.idx" "output.ind" "output" 1732547770.87439 0
+  "output.idx" 1732547770 2969 57213c30f17513ff5a45fcd17fdf50b5 "pdflatex"
   (generated)
   "output.ilg"
   "output.ind"
   (rewritten before read)
-["pdflatex"] 1732543863.51724 "output.tex" "output.pdf" "output" 1732543864.81061 0
+["pdflatex"] 1732547730.32599 "output.tex" "output.pdf" "output" 1732547770.87955 0
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc" 1711065133 2457 aaabbccba4df2a7f7371410ee4e075a3 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1711065133 3124 3813fd4c981d99822890a2861b0d274c ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1711062683 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -155,15 +155,16 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1711065718 5519564 8e03ea51a1f7a9f5f48690c3102141d1 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1711065798 8222521 16e6d5092b8b489c492704811c09d7cb ""
   "c:/texlive/2024/texmf.cnf" 1711065704 713 e69b156964470283e0530f5060668171 ""
-  "image_0.png" 1732539154 1688823 10438d5c4eda8892f0ed725d70e20d43 ""
-  "output.aux" 1732543864 5685 ac4a5ceaa1ef4c9b9e534de95ca02c3b "pdflatex"
-  "output.ind" 1732543487 2354 fbf8d449dd650667237a92a500de51e8 "makeindex output.idx"
-  "output.out" 1732543864 1977 e630936c4fccb5349aa752c3ee0d4b5b "pdflatex"
-  "output.tex" 1732543852 30827 2c32999e27d06e0c7809ea8e57e93537 ""
-  "output.toc" 1732543864 1123 c8d695706bb27c5c9a74c7ff34099301 "pdflatex"
-  "pose_estimation_plot.png" 1732539872 192974 c3d88ea1ff7fbd1499d8b10947eb7aa0 ""
+  "image_0.png" 1732544142 1688823 10438d5c4eda8892f0ed725d70e20d43 ""
+  "output.aux" 1732547770 5685 b4966c2e4695aa09f2502af8acd2a0fa "pdflatex"
+  "output.ind" 1732546947 2354 fbf8d449dd650667237a92a500de51e8 "makeindex output.idx"
+  "output.out" 1732547770 1977 e630936c4fccb5349aa752c3ee0d4b5b "pdflatex"
+  "output.tex" 1732547722 31086 3bb193c0275a25afb9b2f8ce1db37d57 ""
+  "output.toc" 1732547770 1123 2db64c980119617af37d26710f22a424 "pdflatex"
+  "pose_estimation.png" 1732547614 1659222 afeca57be19db3c49e5a98d9f74e1c49 ""
+  "pose_estimation_plot.png" 1732547614 201104 db029ac68c3fae3ee7c461ec92dd5bb8 ""
   "sphinx.sty" 1732481051 50659 6d393be3f369a7862f0b19a359f1ab89 ""
-  "sphinxhighlight.sty" 1732543852 7683 83fb52292c17957d9f4aadcb28c57a87 ""
+  "sphinxhighlight.sty" 1732547722 7683 83fb52292c17957d9f4aadcb28c57a87 ""
   "sphinxlatexadmonitions.sty" 1732481051 18222 f3bfd316b630ed188fcc20bf320acafe ""
   "sphinxlatexcontainers.sty" 1732481051 901 d3a3a1b7b2547f47ade2499350b5c420 ""
   "sphinxlatexgraphics.sty" 1732481051 4840 a9578332b6f3b35e198751fb632c9b79 ""
@@ -178,7 +179,7 @@
   "sphinxlatexstyletext.sty" 1732481051 6881 543f3cecccc7dccac396b5720cccf443 ""
   "sphinxlatextables.sty" 1732481051 57644 2253ce149b29042948a000d2dbf50b50 ""
   "sphinxmanual.cls" 1732481051 4241 7b0d7a37df7b5715fb0dbd585c52ecdb ""
-  "sphinxmessages.sty" 1732543852 765 3f5fcd6cdd7964ed608767954a8ced6f ""
+  "sphinxmessages.sty" 1732547722 765 3f5fcd6cdd7964ed608767954a8ced6f ""
   "sphinxoptionsgeometry.sty" 1732481051 2061 47bb34b8ed8a78823eb0c886abfb9f4d ""
   "sphinxoptionshyperref.sty" 1732481051 1094 79beb8b8a3f10784f8cce804e0f9d3aa ""
   "sphinxpackageboxes.sty" 1732481051 36106 1be2053eb1cb9b083b3a75e3657bcb24 ""

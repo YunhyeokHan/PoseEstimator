@@ -34,25 +34,27 @@ def rotationMatrixToEulerAngles(R):
         numpy.ndarray: Euler angles (in radians) as [roll, pitch, yaw].
     """
     if abs(R[2, 0]) != 1:
-        pitch = math.asin(R[2, 0])  # Calculate pitch (Y-axis rotation)
-        roll = -math.atan2(R[2, 1] / math.cos(pitch), R[2, 2] / math.cos(pitch))  # Roll (X-axis rotation)
-        yaw = - math.atan2(R[1, 0] / math.cos(pitch), R[0, 0] / math.cos(pitch))  # Yaw (Z-axis rotation)
+        yaw2 = math.asin(R[2, 0])  # Calculat yaw (Y-axis rotation)
+
+        pitch2 = math.atan2(R[2, 1] / math.cos(yaw2), R[2, 2] / math.cos(yaw2))  # Pitch (X-axis rotation)
+        
+        roll2 = - math.atan2(R[1, 0] / math.cos(yaw2), R[0, 0] / math.cos(yaw2))   # Roll (Z-axis rotation)
     else:
-        yaw = 0  # Yaw is undefined in gimbal lock
+        roll2 = 0  # Roll is zero
         if R[2, 0] == -1:
-            pitch = math.pi / 2
-            roll = math.atan2(R[0, 1], R[0, 2])
+            yaw2 = math.pi / 2
+            pitch2 = math.atan2(R[0, 1], R[0, 2])
         else:
-            pitch = -math.pi / 2
-            roll = math.atan2(-R[0, 1], -R[0, 2])
+            yaw2 = -math.pi / 2
+            pitch2 = math.atan2(-R[0, 1], -R[0, 2])
     
     # Convert yaw to -90 to 90 degrees range
-    if yaw > math.pi / 2:
-        yaw -= math.pi  # Adjust yaw to the range -90 to 90 degrees
-    elif yaw < -math.pi / 2:
-        yaw += math.pi
+    if roll2 > math.pi / 2:
+        roll2 -= math.pi  # Adjust yaw to the range -90 to 90 degrees
+    elif roll2 < -math.pi / 2:
+        roll2 += math.pi
 
-    return np.array([roll, pitch, yaw])
+    return np.array([pitch2, yaw2, roll2])
 
 
 def generate_objp(checkerboard, scale):
@@ -135,9 +137,9 @@ def plot_to_image(rx, ry, rz, tx, ty, tz, ind_range):
         ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:,.4f}")) 
 
     # labels
-    axes[0, 0].set_title('Roll (X-axis rotation)')
-    axes[0, 1].set_title('Pitch (Y-axis rotation)')
-    axes[0, 2].set_title('Yaw (Z-axis rotation)')
+    axes[0, 0].set_title('X-Rotation, Pitch')
+    axes[0, 1].set_title('Y-Rotation, Yaw')
+    axes[0, 2].set_title('Z-Rotation, Roll')
     axes[1, 0].set_title('X-Translation')
     axes[1, 1].set_title('Y-Translation')
     axes[1, 2].set_title('Z-Translation')
@@ -205,15 +207,17 @@ def process_camera_feed(camera, calib_data, objp, checkerboard, ind_range, updat
                 if frame_count % update_interval == 0:
                     plot_img = plot_to_image(rx, ry, rz, tx, ty, tz, ind_range)
                     cv2.imshow('Plots', plot_img)
-                    dst_color = plotXYZ(dst_color, rvecs, tvecs, calib_data['newcameramtx'])    
+                    # cv2.imwrite('PoseEstimator/pose_estimation_plot.png', plot_img)
+                    dst_color = plotXYZ(dst_color, rvecs, tvecs, calib_data['newcameramtx'])
+                    # cv2.imwrite('PoseEstimator/pose_estimation.png', dst_color)
                     cv2.imshow('Chessboard Detection', dst_color)       
                     key= cv2.waitKey(1) & 0xFF
-
+                    if key == 27:
+                        is_running = False
+                        break
             frame_count += 1
 
-        if key == 27:
-            is_running = False
-            break
+
 
 
         grabResult.Release()
@@ -225,9 +229,9 @@ def process_camera_feed(camera, calib_data, objp, checkerboard, ind_range, updat
 if __name__ == '__main__':
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description="Camera pose estimator using a checkerboard.")
-    parser.add_argument("--checkerboard", type=int, nargs=2, required=True,
+    parser.add_argument("--checkerboard", type=int, nargs=2, required=True, default=[5, 7],
                         help="Checkerboard size as two integers: rows cols (e.g., 5 7).")
-    parser.add_argument("--square_size", type=float, required=True,
+    parser.add_argument("--square_size", type=float, required=True, default=10,
                         help="Size of a square on the chessboard in mm or other units (e.g., 10).")
     parser.add_argument("--exposure_time", type=int, default=20000,
                         help="Exposure time in microseconds (default: 20000).")

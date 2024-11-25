@@ -80,7 +80,11 @@ Once the camera is calibrated, you can run the pose estimation program.
 
       python PoseEstimator/pose_estimator.py --checkerboard 7 5 --square_size 10 --exposure_time 20000
 
-2. The program will display real-time camera feed and calculate the 6-DoF pose relative to the chessboard pattern. Ensure that the pattern is visible to the camera and its corners are detected.
+2. The program will display real-time camera feed and calculate the 6-DoF pose relative to the chessboard pattern. Ensure that the pattern is visible to the camera and its corners are detected. Position/orientation of camera is defined with respect to Global XYZ axis of chessboard pattern (XYZ axes are depicted as R G B in the image).
+
+   .. image:: ../build/img/pose_estimation.png
+      :align: center
+      :width: 1200px
 
    .. image:: ../build/img/pose_estimation_plot.png
       :align: center

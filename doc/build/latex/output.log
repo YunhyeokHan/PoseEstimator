@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.22)  25 NOV 2024 15:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.22)  25 NOV 2024 16:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -45,8 +45,14 @@ Package: cmap 2021/02/06 v1.0j CMap support: searchable PDF
 )
 (c:/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-<<t1.cmap>>)
-(c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
+
+! I can't write on file `output.pdf'.
+(Press Enter to retry, or Control-Z to exit; default file extension is `.pdf')
+Please type another file name for output: 
+! I can't write on file `output.pdf'.
+(Press Enter to retry, or Control-Z to exit; default file extension is `.pdf')
+Please type another file name for output: 
+<<t1.cmap>>) (c:/texlive/2024/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip50
 
@@ -893,26 +899,32 @@ File: image_0.png Graphic file (type png)
 Package pdftex.def Info: image_0.png  used on input line 204.
 (pdftex.def)             Requested size: 444.7523pt x 332.35487pt.
  [2 <./image_0.png (PNG copy)>]
-<pose_estimation_plot.png, id=119, 1204.5pt x 602.25pt>
+<pose_estimation.png, id=119, 1096.095pt x 819.06pt>
+File: pose_estimation.png Graphic file (type png)
+<use pose_estimation.png>
+Package pdftex.def Info: pose_estimation.png  used on input line 252.
+(pdftex.def)             Requested size: 444.7523pt x 332.35487pt.
+<pose_estimation_plot.png, id=120, 1204.5pt x 602.25pt>
 File: pose_estimation_plot.png Graphic file (type png)
 <use pose_estimation_plot.png>
-Package pdftex.def Info: pose_estimation_plot.png  used on input line 252.
+Package pdftex.def Info: pose_estimation_plot.png  used on input line 254.
 (pdftex.def)             Requested size: 444.75745pt x 222.38791pt.
- [3 <./pose_estimation_plot.png (PNG copy)>] [4
-
-]
+ [3 <./pose_estimation.png (PNG copy)>] [4 <./pose_estimation_plot.png (PNG cop
+y)>]
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/txtt/b/n' in size <10> not available
-(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 304.
+(Font)              Font shape `T1/txtt/bx/n' tried instead on input line 306.
 LaTeX Font Info:    Font shape `T1/txtt/m/it' in size <10> not available
-(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 312.
+(Font)              Font shape `T1/txtt/m/sl' tried instead on input line 314.
 
-Overfull \hbox (23.56401pt too wide) in paragraph at lines 345--345
+Overfull \hbox (23.56401pt too wide) in paragraph at lines 347--347
 \T1/qtm/m/it/10 save_dir=\TS1/qtm/m/it/10 '\T1/qtm/m/it/10 PoseEstimator/calibr
 ation_images\TS1/qtm/m/it/10 '\T1/txtt/m/n/10 )|  
  []
 
-[5] [6] [7] [8]
+[5
+
+] [6] [7] [8]
 Chapter 3.
 [9
 
@@ -983,10 +995,10 @@ Package rerunfilecheck Info: File `output.out' has not changed.
 (rerunfilecheck)             Checksum: E630936C4FCCB5349AA752C3EE0D4B5B;1977.
  ) 
 Here is how much of TeX's memory you used:
- 19605 strings out of 474103
- 342873 string characters out of 5747481
+ 19613 strings out of 474103
+ 343087 string characters out of 5747481
  1942496 words of memory out of 5000000
- 41523 multiletter control sequences out of 15000+600000
+ 41531 multiletter control sequences out of 15000+600000
  609755 words of font info for 78 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
  72i,12n,79p,546b,742s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1000,10 +1012,10 @@ ive/2024/texmf-dist/fonts/type1/public/tex-gyre/qtmri.pfb><c:/texlive/2024/texm
 f-dist/fonts/type1/public/txfonts/t1xbtt.pfb><c:/texlive/2024/texmf-dist/fonts/
 type1/public/txfonts/t1xtt.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/t
 xfonts/t1xtt.pfb>
-Output written on output.pdf (17 pages, 2074067 bytes).
+Output written on output.pdf (17 pages, 3739481 bytes).
 PDF statistics:
- 267 PDF objects out of 1000 (max. 8388607)
+ 268 PDF objects out of 1000 (max. 8388607)
  225 compressed objects within 3 object streams
  55 named destinations out of 1000 (max. 500000)
- 143 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 148 words of extra memory for PDF output out of 10000 (max. 10000000)
 
