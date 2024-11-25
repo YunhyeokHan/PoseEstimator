@@ -1,0 +1,540 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PoseEstimator.camera_calibrator &#8212; PoseEstimator 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../../_static/documentation_options.js?v=e1a75a79"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/PoseEstimator/camera_calibrator';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">PoseEstimator 0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Getting Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modules.html">PoseEstimator</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../PoseEstimator.html">PoseEstimator package</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for PoseEstimator.camera_calibrator</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pypylon</span> <span class="kn">import</span> <span class="n">pylon</span>
+
+<span class="c1"># ----------------------- Utility Functions -----------------------</span>
+
+<div class="viewcode-block" id="initialize_camera">
+<a class="viewcode-back" href="../../PoseEstimator.html#PoseEstimator.camera_calibrator.initialize_camera">[docs]</a>
+<span class="k">def</span> <span class="nf">initialize_camera</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">exposure_time</span><span class="o">=</span><span class="mi">20000</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize the camera with user-defined settings.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fps (int): Frames per second.</span>
+<span class="sd">        exposure_time (int): Exposure time in microseconds.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        pylon.InstantCamera: Initialized camera object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">camera</span> <span class="o">=</span> <span class="n">pylon</span><span class="o">.</span><span class="n">InstantCamera</span><span class="p">(</span><span class="n">pylon</span><span class="o">.</span><span class="n">TlFactory</span><span class="o">.</span><span class="n">GetInstance</span><span class="p">()</span><span class="o">.</span><span class="n">CreateFirstDevice</span><span class="p">())</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">Open</span><span class="p">()</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">Width</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">Width</span><span class="o">.</span><span class="n">Max</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">Height</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">Height</span><span class="o">.</span><span class="n">Max</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">OffsetX</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">OffsetY</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">AcquisitionFrameRateEnable</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">AcquisitionFrameRate</span> <span class="o">=</span> <span class="n">fps</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">ExposureAuto</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="s1">&#39;Off&#39;</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">ExposureTime</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="n">exposure_time</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">camera</span></div>
+
+
+<div class="viewcode-block" id="prepare_object_points">
+<a class="viewcode-back" href="../../PoseEstimator.html#PoseEstimator.camera_calibrator.prepare_object_points">[docs]</a>
+<span class="k">def</span> <span class="nf">prepare_object_points</span><span class="p">(</span><span class="n">checkerboard</span><span class="p">,</span> <span class="n">square_size</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prepare 3D object points for the given checkerboard size.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        checkerboard (tuple): Checkerboard size (rows, cols).</span>
+<span class="sd">        square_size (float): Size of each square in real-world units.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Object points for the chessboard.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">objp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">checkerboard</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">checkerboard</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">objp</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">checkerboard</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">:</span><span class="n">checkerboard</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">square_size</span>
+    <span class="k">return</span> <span class="n">objp</span></div>
+
+
+
+<div class="viewcode-block" id="capture_chessboard_images">
+<a class="viewcode-back" href="../../PoseEstimator.html#PoseEstimator.camera_calibrator.capture_chessboard_images">[docs]</a>
+<span class="k">def</span> <span class="nf">capture_chessboard_images</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">checkerboard</span><span class="p">,</span> <span class="n">objp</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="s2">&quot;PoseEstimator/calibration_images&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Capture images with detected chessboard corners.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        camera (pylon.InstantCamera): Initialized camera object.</span>
+<span class="sd">        checkerboard (tuple): Checkerboard size (rows, cols).</span>
+<span class="sd">        objp (numpy.ndarray): 3D object points for the chessboard.</span>
+<span class="sd">        save_dir (str): Directory to save calibration images.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: Object points list, image points list, saved images list.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">save_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span>
+
+    <span class="n">criteria</span> <span class="o">=</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">TERM_CRITERIA_EPS</span> <span class="o">+</span> <span class="n">cv2</span><span class="o">.</span><span class="n">TERM_CRITERIA_MAX_ITER</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+    <span class="n">objpoints</span><span class="p">,</span> <span class="n">imgpoints</span><span class="p">,</span> <span class="n">saved_images</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Press &#39;Spacebar&#39; to save images and corners.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Press &#39;ESC&#39; to stop capturing and proceed to calibration.&quot;</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">StartGrabbing</span><span class="p">(</span><span class="n">pylon</span><span class="o">.</span><span class="n">GrabStrategy_LatestImageOnly</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Capturing images...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">camera</span><span class="o">.</span><span class="n">IsGrabbing</span><span class="p">())</span>
+    <span class="k">while</span> <span class="n">camera</span><span class="o">.</span><span class="n">IsGrabbing</span><span class="p">():</span>
+        <span class="n">grabResult</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">RetrieveResult</span><span class="p">(</span><span class="mi">5000</span><span class="p">,</span> <span class="n">pylon</span><span class="o">.</span><span class="n">TimeoutHandling_ThrowException</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Grabbed frame </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">frame_count</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">grabResult</span><span class="o">.</span><span class="n">GrabSucceeded</span><span class="p">():</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">grabResult</span><span class="o">.</span><span class="n">Array</span>
+            <span class="c1"># if grayscale image, convert to BGR </span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_GRAY2BGR</span><span class="p">)</span>
+            <span class="n">gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+    
+            <span class="c1"># Detect chessboard corners</span>
+            <span class="n">ret</span><span class="p">,</span> <span class="n">corners</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findChessboardCorners</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">checkerboard</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ret</span><span class="p">:</span>
+                <span class="n">corners2</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cornerSubPix</span><span class="p">(</span><span class="n">gray</span><span class="p">,</span> <span class="n">corners</span><span class="p">,</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">criteria</span><span class="p">)</span>
+                <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">drawChessboardCorners</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">checkerboard</span><span class="p">,</span> <span class="n">corners2</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span>
+
+            <span class="c1"># current status text</span>
+            <span class="n">current_status</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Frame: </span><span class="si">{</span><span class="n">frame_count</span><span class="si">}</span><span class="s2">, Corners: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">corners2</span><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">0</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">instruction</span> <span class="o">=</span> <span class="s2">&quot;Press &#39;Spacebar&#39; to save image and corners, &#39;ESC&#39; to exit capture mode.&quot;</span>
+
+            <span class="c1"># Display the current status on left top corner</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">current_status</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># Display the instruction on right bottom corner</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">instruction</span><span class="p">,</span> <span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">600</span><span class="p">,</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">20</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="c1"># Display the image</span>
+            <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&quot;Chessboard Detection&quot;</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
+
+            <span class="c1"># Handle keyboard inputs</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="mi">32</span><span class="p">:</span>  <span class="c1"># Spacebar</span>
+                <span class="n">image_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;image_</span><span class="si">{</span><span class="n">frame_count</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+                <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">image_name</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
+                <span class="n">saved_images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image_name</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">ret</span><span class="p">:</span>
+                    <span class="n">objpoints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">objp</span><span class="p">)</span>
+                    <span class="n">imgpoints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">corners2</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved: </span><span class="si">{</span><span class="n">image_name</span><span class="si">}</span><span class="s2"> and corners.&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved: </span><span class="si">{</span><span class="n">image_name</span><span class="si">}</span><span class="s2">, but no corners detected.&quot;</span><span class="p">)</span>
+                <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="k">elif</span> <span class="n">key</span> <span class="o">==</span> <span class="mi">27</span><span class="p">:</span>  <span class="c1"># ESC</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exiting capture mode...&quot;</span><span class="p">)</span>
+                <span class="k">break</span>
+
+        <span class="n">grabResult</span><span class="o">.</span><span class="n">Release</span><span class="p">()</span>
+
+    <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">objpoints</span><span class="p">,</span> <span class="n">imgpoints</span><span class="p">,</span> <span class="n">saved_images</span></div>
+
+
+<div class="viewcode-block" id="calibrate_camera">
+<a class="viewcode-back" href="../../PoseEstimator.html#PoseEstimator.camera_calibrator.calibrate_camera">[docs]</a>
+<span class="k">def</span> <span class="nf">calibrate_camera</span><span class="p">(</span><span class="n">objpoints</span><span class="p">,</span> <span class="n">imgpoints</span><span class="p">,</span> <span class="n">image_shape</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s2">&quot;PoseEstimator/calib.npz&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Perform camera calibration and save the results.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        objpoints (list): List of 3D object points.</span>
+<span class="sd">        imgpoints (list): List of 2D image points.</span>
+<span class="sd">        image_shape (tuple): Shape of the images used for calibration.</span>
+<span class="sd">        output_file (str): File to save calibration results.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple: Camera matrix and distortion coefficients.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Performing camera calibration...&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">objpoints</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">imgpoints</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">ret</span><span class="p">,</span> <span class="n">mtx</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">rvecs</span><span class="p">,</span> <span class="n">tvecs</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">calibrateCamera</span><span class="p">(</span><span class="n">objpoints</span><span class="p">,</span> <span class="n">imgpoints</span><span class="p">,</span> <span class="n">image_shape</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">ret</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calibration successful!</span><span class="se">\n</span><span class="s2">Camera matrix:</span><span class="se">\n</span><span class="si">{</span><span class="n">mtx</span><span class="si">}</span><span class="se">\n</span><span class="s2">Distortion coefficients:</span><span class="se">\n</span><span class="si">{</span><span class="n">dist</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">mtx</span><span class="o">=</span><span class="n">mtx</span><span class="p">,</span> <span class="n">dist</span><span class="o">=</span><span class="n">dist</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calibration data saved to &#39;</span><span class="si">{</span><span class="n">output_file</span><span class="si">}</span><span class="s2">&#39;.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">mtx</span><span class="p">,</span> <span class="n">dist</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Calibration failed due to insufficient data.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not enough valid data for calibration.&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_calibration_data">
+<a class="viewcode-back" href="../../PoseEstimator.html#PoseEstimator.camera_calibrator.load_calibration_data">[docs]</a>
+<span class="k">def</span> <span class="nf">load_calibration_data</span><span class="p">(</span><span class="n">calib_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load camera calibration data from a file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        calib_file (str): File containing camera calibration data.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Camera matrix and distortion coefficients.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">calib_file</span><span class="p">)</span>
+    <span class="n">mtx</span><span class="p">,</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;mtx&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;dist&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;mtx&#39;</span><span class="p">:</span> <span class="n">mtx</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">:</span> <span class="n">dist</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="undistort_image">
+<a class="viewcode-back" href="../../PoseEstimator.html#PoseEstimator.camera_calibrator.undistort_image">[docs]</a>
+<span class="k">def</span> <span class="nf">undistort_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">calib_data</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Undistort the input image using camera calibration data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        img (numpy.ndarray): Input image to undistort.</span>
+<span class="sd">        calib_data (dict): Camera calibration data containing mtx and dist.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        numpy.ndarray: Undistorted image.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">cv2</span><span class="o">.</span><span class="n">undistort</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">calib_data</span><span class="p">[</span><span class="s1">&#39;mtx&#39;</span><span class="p">],</span> <span class="n">calib_data</span><span class="p">[</span><span class="s1">&#39;dist&#39;</span><span class="p">])</span></div>
+
+
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Parse command-line arguments</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Camera Calibration Tool&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--checkerboard&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Checkerboard size as two integers: rows cols (e.g., 5 7).&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--square_size&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Size of a square on the chessboard in mm or other units (e.g., 10).&quot;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--exposure_time&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20000</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Exposure time in microseconds (default: 20000).&quot;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="n">checkerboard</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">checkerboard</span><span class="p">)</span>
+    <span class="n">exposure_time</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">exposure_time</span>
+    <span class="n">square_size</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">square_size</span>
+
+    <span class="c1"># Initialize camera</span>
+    <span class="n">camera</span> <span class="o">=</span> <span class="n">initialize_camera</span><span class="p">(</span><span class="n">exposure_time</span><span class="o">=</span><span class="n">exposure_time</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Prepare 3D object points</span>
+        <span class="n">objp</span> <span class="o">=</span> <span class="n">prepare_object_points</span><span class="p">(</span><span class="n">checkerboard</span><span class="p">,</span> <span class="n">square_size</span><span class="p">)</span>
+
+        <span class="c1"># Capture images and corners</span>
+        <span class="n">objpoints</span><span class="p">,</span> <span class="n">imgpoints</span><span class="p">,</span> <span class="n">saved_images</span> <span class="o">=</span> <span class="n">capture_chessboard_images</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">checkerboard</span><span class="p">,</span> <span class="n">objp</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">saved_images</span><span class="p">:</span>
+            <span class="c1"># Perform calibration</span>
+            <span class="n">calibrate_camera</span><span class="p">(</span><span class="n">objpoints</span><span class="p">,</span> <span class="n">imgpoints</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">saved_images</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+
+        <span class="n">camera</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Yunhyeok Han
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Yunhyeok Han.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+PoseEstimator package
+=====================
+
+
+PoseEstimator.pose\_estimator module
+------------------------------------
+
+.. automodule:: PoseEstimator.pose_estimator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

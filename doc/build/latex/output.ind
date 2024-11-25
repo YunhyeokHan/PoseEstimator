@@ -1,0 +1,65 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter C
+  \item \spxentry{calibrate\_camera()}\spxextra{in module PoseEstimator.camera\_calibrator}, 
+		\hyperpage{5}
+  \item \spxentry{capture\_chessboard\_images()}\spxextra{in module PoseEstimator.camera\_calibrator}, 
+		\hyperpage{5}
+
+  \indexspace
+  \bigletter G
+  \item \spxentry{generate\_objp()}\spxextra{in module PoseEstimator.pose\_estimator}, 
+		\hyperpage{7}
+
+  \indexspace
+  \bigletter I
+  \item \spxentry{initialize\_camera()}\spxextra{in module PoseEstimator.camera\_calibrator}, 
+		\hyperpage{5}
+  \item \spxentry{initialize\_camera()}\spxextra{in module PoseEstimator.pose\_estimator}, 
+		\hyperpage{7}
+
+  \indexspace
+  \bigletter L
+  \item \spxentry{load\_calibration\_data()}\spxextra{in module PoseEstimator.camera\_calibrator}, 
+		\hyperpage{6}
+  \item \spxentry{load\_calibration\_data()}\spxextra{in module PoseEstimator.pose\_estimator}, 
+		\hyperpage{7}
+
+  \indexspace
+  \bigletter M
+  \item \spxentry{module}
+    \subitem \spxentry{PoseEstimator}, \hyperpage{8}
+    \subitem \spxentry{PoseEstimator.camera\_calibrator}, \hyperpage{5}
+    \subitem \spxentry{PoseEstimator.pose\_estimator}, \hyperpage{7}
+
+  \indexspace
+  \bigletter P
+  \item \spxentry{plot\_to\_image()}\spxextra{in module PoseEstimator.pose\_estimator}, 
+		\hyperpage{7}
+  \item \spxentry{plotXYZ()}\spxextra{in module PoseEstimator.pose\_estimator}, \hyperpage{7}
+  \item \spxentry{PoseEstimator}
+    \subitem \spxentry{module}, \hyperpage{8}
+  \item \spxentry{PoseEstimator.camera\_calibrator}
+    \subitem \spxentry{module}, \hyperpage{5}
+  \item \spxentry{PoseEstimator.pose\_estimator}
+    \subitem \spxentry{module}, \hyperpage{7}
+  \item \spxentry{prepare\_object\_points()}\spxextra{in module PoseEstimator.camera\_calibrator}, 
+		\hyperpage{6}
+  \item \spxentry{process\_camera\_feed()}\spxextra{in module PoseEstimator.pose\_estimator}, 
+		\hyperpage{8}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{rotationMatrixToEulerAngles()}\spxextra{in module PoseEstimator.pose\_estimator}, 
+		\hyperpage{8}
+
+  \indexspace
+  \bigletter U
+  \item \spxentry{undistort\_image()}\spxextra{in module PoseEstimator.camera\_calibrator}, 
+		\hyperpage{6}
+
+\end{sphinxtheindex}
