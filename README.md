@@ -48,11 +48,11 @@ python ¨PoseEstimator/camera_calibrator.py --checkerboard 7 5 --square_size 10 
 ```
 2. Place the chessboard in the camera's view and verify that all corner points are detected. The program will display real-time feedback.
 <p align="center">
-  <img src="./doc/build/img/image_0.png" alt="image info" width="1200"/>
+  <img src="./doc/source/imgs/output.gif" alt="image info" width="1200"/>
 </p>
 
-3. Press Spacebar to save detected points for calibration. Move the chessboard to different positions and orientations, capturing sufficient data points.
-4. Press ESC to end the capture session. The program will perform intrinsic camera calibration and save the results for future use.
+1. Press Spacebar to save detected points for calibration. Move the chessboard to different positions and orientations, capturing sufficient data points.
+2. Press ESC to end the capture session. The program will perform intrinsic camera calibration and save the results for future use.
 
 ---
 
@@ -70,11 +70,11 @@ python PoseEstimator/pose_estimator.py --checkerboard 7 5 --square_size 10 --exp
 2.The program will display real-time camera feed and calculate the 6-DoF pose relative to the chessboard pattern. Ensure that the pattern is visible to the camera and its corners are detected. Position/orientation of camera is defined with respect to Global XYZ axis of chessboard pattern (XYZ axes are depicted as R G B in the image). The orientation of camera is defined with respect to camera coordinate system. (Roll, pitch, yaw angles of camera itself).
 
 <p align="center">
-  <img src="./doc/build/img/pose_estimation.png" alt="image info" width="1200"/>
+  <img src="./doc/source/imgs/pose_estimation.png" alt="image info" width="1200"/>
 </p>
 
 <p align="center">
-  <img src="./doc/build/img/pose_estimation_plot.png" alt="image info" width="1200"/>
+  <img src="./doc/source/imgs/pose_estimation_plot.png" alt="image info" width="1200"/>
 </p>
 
 3. Press ESC to terminate the program.

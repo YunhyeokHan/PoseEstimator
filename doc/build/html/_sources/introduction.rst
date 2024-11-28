@@ -57,7 +57,7 @@ Before running the pose estimation, the camera must be calibrated using a chessb
 
 2. Place the chessboard in the camera's view and verify that all corner points are detected. The program will display real-time feedback.
 
-   .. image:: ../build/img/image_0.png
+   .. image:: ../source/imgs/output.gif
       :align: center
       :width: 1200px
 
@@ -82,11 +82,11 @@ Once the camera is calibrated, you can run the pose estimation program.
 
 2. The program will display real-time camera feed and calculate the 6-DoF pose relative to the chessboard pattern. Ensure that the pattern is visible to the camera and its corners are detected. Position/orientation of camera is defined with respect to Global XYZ axis of chessboard pattern (XYZ axes are depicted as R G B in the image).
 
-   .. image:: ../build/img/pose_estimation.png
+   .. image:: ../source/imgs/pose_estimation.png
       :align: center
       :width: 1200px
 
-   .. image:: ../build/img/pose_estimation_plot.png
+   .. image:: ../source/imgs/pose_estimation_plot.png
       :align: center
       :width: 1200px
 
