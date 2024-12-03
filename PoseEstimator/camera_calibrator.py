@@ -6,6 +6,7 @@ from pypylon import pylon
 
 # ----------------------- Utility Functions -----------------------
 
+
 def initialize_camera(fps=100, exposure_time=20000):
     """
     Initialize the camera with user-defined settings.
@@ -25,9 +26,10 @@ def initialize_camera(fps=100, exposure_time=20000):
     camera.OffsetY.Value = 0
     camera.AcquisitionFrameRateEnable = True
     camera.AcquisitionFrameRate = fps
-    camera.ExposureAuto.SetValue('Off')
+    camera.ExposureAuto.SetValue("Off")
     camera.ExposureTime.SetValue(exposure_time)
     return camera
+
 
 def prepare_object_points(checkerboard, square_size):
     """
@@ -41,11 +43,16 @@ def prepare_object_points(checkerboard, square_size):
         numpy.ndarray: Object points for the chessboard.
     """
     objp = np.zeros((checkerboard[0] * checkerboard[1], 3), np.float32)
-    objp[:, :2] = np.mgrid[0:checkerboard[0], 0:checkerboard[1]].T.reshape(-1, 2) * square_size
+    objp[:, :2] = (
+        np.mgrid[0 : checkerboard[0], 0 : checkerboard[1]].T.reshape(-1, 2)
+        * square_size
+    )
     return objp
 
 
-def capture_chessboard_images(camera, checkerboard, objp, save_dir="PoseEstimator/calibration_images"):
+def capture_chessboard_images(
+    camera, checkerboard, objp, save_dir="PoseEstimator/calibration_images"
+):
     """
     Capture images with detected chessboard corners.
 
@@ -75,11 +82,11 @@ def capture_chessboard_images(camera, checkerboard, objp, save_dir="PoseEstimato
         print("Grabbed frame {}".format(frame_count))
         if grabResult.GrabSucceeded():
             img = grabResult.Array
-            # if grayscale image, convert to BGR 
+            # if grayscale image, convert to BGR
             if len(img.shape) == 2:
                 img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    
+
             # Detect chessboard corners
             ret, corners = cv2.findChessboardCorners(gray, checkerboard, None)
             if ret:
@@ -87,14 +94,32 @@ def capture_chessboard_images(camera, checkerboard, objp, save_dir="PoseEstimato
                 img = cv2.drawChessboardCorners(img, checkerboard, corners2, ret)
 
             # current status text
-            current_status = f"Frame: {frame_count}, Corners: {len(corners2) if ret else 0}"
+            current_status = (
+                f"Frame: {frame_count}, Corners: {len(corners2) if ret else 0}"
+            )
             instruction = "Press 'Spacebar' to save image and corners, 'ESC' to exit capture mode."
 
             # Display the current status on left top corner
-            img = cv2.putText(img, current_status, (10, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
+            img = cv2.putText(
+                img,
+                current_status,
+                (10, 20),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.5,
+                (0, 255, 0),
+                1,
+            )
 
             # Display the instruction on right bottom corner
-            img = cv2.putText(img, instruction, (img.shape[1]-600, img.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
+            img = cv2.putText(
+                img,
+                instruction,
+                (img.shape[1] - 600, img.shape[0] - 20),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.5,
+                (0, 255, 0),
+                1,
+            )
             # Display the image
             cv2.imshow("Chessboard Detection", img)
 
@@ -122,7 +147,10 @@ def capture_chessboard_images(camera, checkerboard, objp, save_dir="PoseEstimato
     cv2.destroyAllWindows()
     return objpoints, imgpoints, saved_images
 
-def calibrate_camera(objpoints, imgpoints, image_shape, output_file="PoseEstimator/calib.npz"):
+
+def calibrate_camera(
+    objpoints, imgpoints, image_shape, output_file="PoseEstimator/calib.npz"
+):
     """
     Perform camera calibration and save the results.
 
@@ -137,9 +165,13 @@ def calibrate_camera(objpoints, imgpoints, image_shape, output_file="PoseEstimat
     """
     print("Performing camera calibration...")
     if len(objpoints) > 0 and len(imgpoints) > 0:
-        ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, image_shape[::-1], None, None)
+        ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(
+            objpoints, imgpoints, image_shape[::-1], None, None
+        )
         if ret:
-            print(f"Calibration successful!\nCamera matrix:\n{mtx}\nDistortion coefficients:\n{dist}")
+            print(
+                f"Calibration successful!\nCamera matrix:\n{mtx}\nDistortion coefficients:\n{dist}"
+            )
             np.savez(output_file, mtx=mtx, dist=dist)
             print(f"Calibration data saved to '{output_file}'.")
             return mtx, dist
@@ -147,6 +179,7 @@ def calibrate_camera(objpoints, imgpoints, image_shape, output_file="PoseEstimat
             raise RuntimeError("Calibration failed due to insufficient data.")
     else:
         raise ValueError("Not enough valid data for calibration.")
+
 
 def load_calibration_data(calib_file):
     """
@@ -159,8 +192,9 @@ def load_calibration_data(calib_file):
         dict: Camera matrix and distortion coefficients.
     """
     data = np.load(calib_file)
-    mtx, dist = data['mtx'], data['dist']
-    return {'mtx': mtx, 'dist': dist}
+    mtx, dist = data["mtx"], data["dist"]
+    return {"mtx": mtx, "dist": dist}
+
 
 def undistort_image(img, calib_data):
     """
@@ -173,20 +207,31 @@ def undistort_image(img, calib_data):
     Returns:
         numpy.ndarray: Undistorted image.
     """
-    return cv2.undistort(img, calib_data['mtx'], calib_data['dist'])
-
-
+    return cv2.undistort(img, calib_data["mtx"], calib_data["dist"])
 
 
 if __name__ == "__main__":
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description="Camera Calibration Tool")
-    parser.add_argument("--checkerboard", type=int, nargs=2, required=True,
-                        help="Checkerboard size as two integers: rows cols (e.g., 5 7).")
-    parser.add_argument("--square_size", type=float, required=True,
-                        help="Size of a square on the chessboard in mm or other units (e.g., 10).")
-    parser.add_argument("--exposure_time", type=int, default=20000,
-                        help="Exposure time in microseconds (default: 20000).")
+    parser.add_argument(
+        "--checkerboard",
+        type=int,
+        nargs=2,
+        required=True,
+        help="Checkerboard size as two integers: rows cols (e.g., 5 7).",
+    )
+    parser.add_argument(
+        "--square_size",
+        type=float,
+        required=True,
+        help="Size of a square on the chessboard in mm or other units (e.g., 10).",
+    )
+    parser.add_argument(
+        "--exposure_time",
+        type=int,
+        default=20000,
+        help="Exposure time in microseconds (default: 20000).",
+    )
     args = parser.parse_args()
 
     checkerboard = tuple(args.checkerboard)
@@ -197,15 +242,21 @@ if __name__ == "__main__":
     camera = initialize_camera(exposure_time=exposure_time)
 
     try:
-        # Prepare 3D object points
+        # Prepare 3D object
         objp = prepare_object_points(checkerboard, square_size)
 
         # Capture images and corners
-        objpoints, imgpoints, saved_images = capture_chessboard_images(camera, checkerboard, objp)
+        objpoints, imgpoints, saved_images = capture_chessboard_images(
+            camera, checkerboard, objp
+        )
 
         if saved_images:
             # Perform calibration
-            calibrate_camera(objpoints, imgpoints, cv2.imread(saved_images[0], cv2.IMREAD_GRAYSCALE).shape)
+            calibrate_camera(
+                objpoints,
+                imgpoints,
+                cv2.imread(saved_images[0], cv2.IMREAD_GRAYSCALE).shape,
+            )
 
     finally:
 
