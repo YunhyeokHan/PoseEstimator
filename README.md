@@ -85,3 +85,4 @@ python PoseEstimator/pose_estimator.py --checkerboard 7 5 --square_size 10 --exp
 - Calibration results are saved automatically and reused for pose estimation.  
 - Ensure the chessboard pattern dimensions and exposure settings are correctly provided in all steps for accurate results.  
 - For real-time performance, use a compatible camera and a well-lit environment.
+- This project was created during the project ANR DynaTimberEyes.
